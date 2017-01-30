@@ -97,7 +97,7 @@ int octToDec(string octN){
 bool checkhex(string hex){
 	for(int i = 0; i < hex.length(); i++){
 		if(!isdigit(hex[i])){
-			if(!(hex[i] == 'A' || hex[i] == 'B' || hex[i] == 'C' || hex[i] == 'D' || hex[i] == 'E' || hex[i] == 'F')){
+			if(!(hex[i] == 'A' || hex[i] == 'B' || hex[i] == 'C' || hex[i] == 'D' || hex[i] == 'E' || hex[i] == 'F' || hex[i] == 'a' || hex[i] == 'b' || hex[i] == 'c' || hex[i] == 'd' || hex[i] == 'e' || hex[i] == 'f')){
 				return false;
 			}
 		}
@@ -282,7 +282,7 @@ string decToOct(int decN){
 string decToHex(int decN){
 	string hex;
 	while(decN != 0){
-		if(decN%16 < 9){
+		if(decN%16 <= 9){
 			hex = to_string(decN%16)+hex;
 		}
 		else{
@@ -312,7 +312,7 @@ string decToHex(int decN){
 					break;
 				}
 				default:{
-					cout << "Can't be here";
+					cout << "Can't be here" << endl;;
 				}
 			}
 		}
@@ -333,7 +333,7 @@ string conversionFromDec(string base, int totalInDec){
 		totalInStr = decToOct(totalInDec);
 		return totalInStr;
 	}
-	else if(base == "h"){
+	else if(base == "x"){
 		totalInStr = decToHex(totalInDec);
 		return totalInStr;
 	}
@@ -367,7 +367,7 @@ int main(int argc, char**argv){
 		return 0;
 	}
 	if(total < 0){
-		cout << "-" << argv[4] << outputTotal << endl;
+		cout << "-" << argv[4] << outputTotal.substr(1) << endl;
 	}
 	else{
 		cout << argv[4] << outputTotal << endl;

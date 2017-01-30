@@ -94,9 +94,10 @@ string FloatingSequence(string sequence){
 		intmantissa += 1;
 	}
 
-	double total =  pow(2, intexponent) * intmantissa;
+	long total =  pow(2, intexponent) * intmantissa;
 	string strtotal;
 	strtotal = sciExpress(total);
+	printf("%ld\n", total);
 	if(intsign == 1){
 		return "-"+strtotal;
 	}
